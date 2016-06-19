@@ -1,5 +1,5 @@
 <h1>Leo災情支援網</h1>
-<table>
+<table class="table">
   <tr>
     <th>標題</th>
     <th>類別</th>
@@ -12,8 +12,8 @@
     <td><%= '尚未設定' =%></td>
     <td><%= '尚未設定' =%></td>
     <td>
-      <%= link_to '編輯', edit_post_path(p) %>
-      <%= link_to '刪除', post_path(p), :method => :delete %>
+      <%= link_to '編輯', edit_post_path(p), :class => "btn btn-default" %>
+      <%= link_to '刪除', post_path(p), :method => :delete, :class => "btn btn-default" %>
     </td>
   </tr>
 <% end -%>
@@ -21,5 +21,7 @@
 
 <%= paginate @posts %>
 
-<%= link_to '新增災情資訊', new_post_path %>
+<p>
+<%= link_to '新增災情資訊', new_post_path, :class => "btn btn-danger" %>
+</p>
 
