@@ -1,0 +1,11 @@
+<%= form_for @post, :url => posts_path do |f| %>
+
+
+<%= render :partial => 'form', :locals => { :f => f } %>
+
+<p>
+    <%= f.submit "張貼" %>
+</p>
+
+<p><%= link_to '返回首頁', posts_path %></p>
+<% end %>

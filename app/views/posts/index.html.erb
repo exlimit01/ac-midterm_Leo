@@ -1,0 +1,25 @@
+<h1>Leo災情支援網</h1>
+<table>
+  <tr>
+    <th>標題</th>
+    <th>類別</th>
+    <th>張貼時間</th>
+    <th>操作</th>
+  </tr>
+<% @posts.each do |p| %>
+  <tr>
+    <td><%= link_to p.name, post_path(p) %></td>
+    <td><%= '尚未設定' =%></td>
+    <td><%= '尚未設定' =%></td>
+    <td>
+      <%= link_to '編輯', edit_post_path(p) %>
+      <%= link_to '刪除', post_path(p), :method => :delete %>
+    </td>
+  </tr>
+<% end -%>
+</table>
+
+<%= paginate @posts %>
+
+<%= link_to '新增災情資訊', new_post_path %>
+
