@@ -13,10 +13,14 @@
     <%= f.submit "留言", :class => "btn btn-danger" %>
 <% end %>
 
+<h2>留言記錄</h2>
+
 <% @post.comments.each do |c| %>
   <p>
     <%= c.content %>
-    <%= link_to '刪除', post_comment_path(@post, c), :method => :delete %>
+    <% if c.user == current_user %>
+    <%= link_to  '刪除', post_comment_path(@post, c), :method => :delete %>
+    <% end %>
   </p>
 <% end %>
 

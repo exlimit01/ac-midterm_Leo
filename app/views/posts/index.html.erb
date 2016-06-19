@@ -12,8 +12,10 @@
     <td><%= p.category.try(:name) =%></td>
     <td><%= p.created_at =%></td>
     <td>
+      <% if p.user == current_user %>
       <%= link_to '編輯', edit_post_path(p), :class => "btn btn-default" %>
       <%= link_to '刪除', post_path(p), :method => :delete, :class => "btn btn-default" %>
+      <% end %>
     </td>
   </tr>
 <% end -%>
