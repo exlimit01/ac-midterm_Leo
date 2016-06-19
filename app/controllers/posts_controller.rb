@@ -24,6 +24,7 @@ class PostsController < ApplicationController
 
   def show
     @page_tittle = @post.name
+    @comment = Comment.new
   end
 
   def edit
@@ -47,7 +48,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:name, :content)
+    params.require(:post).permit(:name, :content, :category_id)
   end
 
   def set_post

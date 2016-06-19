@@ -1,4 +1,23 @@
+<p>標題:
 <%= @post.name %>
-<%= simple_format(@post.content) %>
+</p>
+
+<p>內文:
+<%= @post.content %>
+</p>
+
+<%= form_for [@post, @comment] do |f| %>
+    <p>
+      <%= f.text_area :content , :class => "form-control"%>
+    </p>
+    <%= f.submit "留言", :class => "btn btn-danger" %>
+<% end %>
+
+<% @post.comments.each do |c| %>
+  <p>
+    <%= c.content %>
+    <%= link_to '刪除', post_comment_path(@post, c), :method => :delete %>
+  </p>
+<% end %>
 
 <p><%= link_to '返回目錄', posts_path %></p>

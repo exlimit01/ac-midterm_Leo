@@ -9,8 +9,8 @@
 <% @posts.each do |p| %>
   <tr>
     <td><%= link_to p.name, post_path(p) %></td>
-    <td><%= '尚未設定' =%></td>
-    <td><%= '尚未設定' =%></td>
+    <td><%= p.category.try(:name) =%></td>
+    <td><%= p.created_at =%></td>
     <td>
       <%= link_to '編輯', edit_post_path(p), :class => "btn btn-default" %>
       <%= link_to '刪除', post_path(p), :method => :delete, :class => "btn btn-default" %>
